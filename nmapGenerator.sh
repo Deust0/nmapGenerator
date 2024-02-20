@@ -1,4 +1,12 @@
 #!/bin/bash
+# Tomar en cuenta que la entrada en el archivo name.txt se tiene que ver de la siguiente manera o similar:
+# 10.2.34.1:445/TCP
+
+# La salida se verá de la siguiente manera: 
+# sudo nmap -Pn -n 172.17.3.214 -p 445 -oN 10-2-34-1_445_(comando)
+
+# O en caso de modificar el script con la recomendación de la linea 39:
+# sudo nmap -Pn -n 172.17.3.214 -p 445 > output
 
 # Verificar que se hayan proporcionado argumentos
 if [ $# -ne 2 ]; then
@@ -27,8 +35,12 @@ while IFS= read -r line; do
     command_output=$(echo "$command_output2" | tr ' ' '_')
     
     # Crear el comando nmap y escribirlo en el nuevo archivo
+    # Con esta linea crea un archivo unico para cada host, comando, y puerto
     echo "sudo nmap $2 $ip_formatted -p $port -oN ${ip_file_output}_${port}_$command_output" >> scriptsGenerated.ssh
 
+    # Si deseas crear un solo archivo para toda la entrada, hacer lo siguiente:
+    # echo "sudo nmap $2 $ip_formatted -p $port >> commands_nmap" >> scriptsGenerated.ssh
+    # Así imprime sobre un mismo archivo y concatena la salida de cada nmap que se vaya a ejecutar
 done < $1
 
 echo "Se han generado los comandos de sondeo en el archivo 'scriptsGenerated.txt'."
