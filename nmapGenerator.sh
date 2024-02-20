@@ -1,4 +1,5 @@
 #!/bin/bash
+# CREA UN CONJUNTO DE SCRIPTS DE NMAP PARA UN GRAN NÚMERO DE HOSTS, OLVIDATE DE EXCEL JAJA
 # Tomar en cuenta que la entrada en el archivo name.txt se tiene que ver de la siguiente manera o similar:
 # 10.2.34.1:445/TCP
 
