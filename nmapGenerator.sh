@@ -32,6 +32,6 @@ while IFS= read -r line; do
 done < $1
 
 echo "Se han generado los comandos de sondeo en el archivo 'scriptsGenerated.txt'."
-
+sudo chmod u+x u+w scriptsGenerated.ssh
 
 
