@@ -12,7 +12,7 @@ if [ ! -f "$1" ]; then
     echo "El archivo '$1' no existe."
     exit 1
 fi
-echo "#!/bin/bash" >> scriptsGenerated.txt
+echo "#!/bin/bash" >> scriptsGenerated.ssh
 # Iterar sobre cada línea del archivo de entrada
 while IFS= read -r line; do
     # Extraer la dirección IP y el puerto de la línea
@@ -27,7 +27,7 @@ while IFS= read -r line; do
     command_output=$(echo "$command_output2" | tr ' ' '_')
     
     # Crear el comando nmap y escribirlo en el nuevo archivo
-    echo "sudo nmap $2 $ip_formatted -p $port -oN ${ip_file_output}_${port}_$command_output" >> scriptsGenerated.txt
+    echo "sudo nmap $2 $ip_formatted -p $port -oN ${ip_file_output}_${port}_$command_output" >> scriptsGenerated.ssh
 
 done < $1
 
