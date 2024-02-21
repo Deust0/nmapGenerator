@@ -4,10 +4,10 @@
 # 10.2.34.1:445/TCP
 
 # La salida se verá de la siguiente manera: 
-# sudo nmap -Pn -n 172.17.3.214 -p 445 -oN 10-2-34-1_445_(comando)
+# sudo nmap -Pn -n 10.131.23.12 -p 445 -oN 10-2-34-1_445_(comando)
 
 # O en caso de modificar el script con la recomendación de la linea 39:
-# sudo nmap -Pn -n 172.17.3.214 -p 445 > output
+# sudo nmap -Pn -n 10.131.23.12 -p 445 > output
 
 # Verificar que se hayan proporcionado argumentos
 if [ $# -ne 2 ]; then
